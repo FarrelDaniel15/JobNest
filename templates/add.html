@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <h1>Add new entry</h1>
+    <p></p>
+
+    <!-- Form adapted from Tailwind CSS-->
+    <form class="space-y-4" action="/add" method="post">
+    <!-- Company -->
+    <div>
+        <label for="company" class="block mb-2 text-sm font-medium text-black">Company</label>
+        <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h12M6 4v16M6 4H4m14 0h2m-2 0v16m-8-8h4m-4 4h4m-4-8h4M10 8h4"/>
+            </svg>
+        </div>
+        <input type="text" id="company" class="bg-gray-100 border border-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder-gray-400" name="company_name" placeholder="Google, Inc.">
+        </div>
+    </div>
+
+    <!-- Job -->
+    <div>
+        <label for="job" class="block mb-2 text-sm font-medium text-black">Job</label>
+        <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1M3 11V8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3M3 11v8a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8M3 11h18"/>
+            </svg>
+        </div>
+        <input type="text" id="job" class="bg-gray-100 border border-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder-gray-400" name="job" placeholder="Senior Software Engineer">
+        </div>
+    </div>
+
+    <!-- Salary -->
+    <div>
+        <label for="salary" class="block mb-2 text-sm font-medium text-black">Salary</label>
+        <div class="flex">
+        <span class="inline-flex items-center px-3 text-sm text-gray-400 bg-gray-100 border border-e-0 border-gray-700 rounded-s-md">
+            $
+        </span>
+        <input type="text" id="salary" class="rounded-none rounded-e-lg bg-gray-100 border border-gray-700 text-black focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 placeholder-gray-400" name="salary" placeholder="150,000 / year">
+        </div>
+    </div>
+
+    <!-- Date -->
+    <div>
+        <label for="date" class="block mb-2 text-sm font-medium text-black">Date</label>
+        <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/>
+            </svg>
+        </div>
+        <input type="date" id="date" class="bg-gray-100 border border-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder-gray-400" name="date">
+        </div>
+    </div>
+
+    <!-- Status -->
+    <div>
+        <label for="status" class="block mb-2 text-sm font-medium text-black">Status</label>
+        <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.8 13.938A6.5 6.5 0 1 0 6.2 13.938"/>
+            </svg>
+        </div>
+        <select id="status" name="status" class="bg-gray-100 border border-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5">
+            <option value="" disabled selected>Select status...</option>
+            <option value="Saved">Saved</option>
+            <option value="Applied">Applied</option>
+            <option value="Assessment">Assessment</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Withdrawn">Withdrawn</option>
+        </select>
+        </div>
+    </div>
+
+    <!-- Website -->
+    <div>
+        <label for="website" class="block mb-2 text-sm font-medium text-black">Website</label>
+        <div class="flex">
+        <span class="inline-flex items-center px-3 text-sm text-gray-400 bg-gray-100 border border-e-0 border-gray-700 rounded-s-md">
+            https://
+        </span>
+        <input type="text" id="website" name="website" class="rounded-none rounded-e-lg bg-gray-100 border border-gray-700 text-black focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 placeholder-gray-400" placeholder="flowbite.com">
+        </div>
+    </div>
+
+    <!-- Location -->
+    <div>
+        <label for="location" class="block mb-2 text-sm font-medium text-black">Location</label>
+        <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.8 13.938A6.5 6.5 0 1 0 6.2 13.938"/>
+            </svg>
+        </div>
+        <input type="text" id="location" name="location" class="bg-gray-100 border border-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder-gray-400" placeholder="San Francisco, CA">
+        </div>
+    </div>
+
+    <!-- Notes -->
+    <div>
+        <label for="notes" class="block mb-2 text-sm font-medium text-black">Notes</label>
+        <textarea id="notes" name="notes" rows="4" class="block p-2.5 w-full text-sm text-black bg-gray-100 rounded-lg border border-gray-700 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400" placeholder="Additional notes about the role..."></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Add
+    </button>
+</form>
+{% endblock %}

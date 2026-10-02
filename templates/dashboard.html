@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <h1>Job Dashboard</h1>
+        <div class="px-4 md:px-8 mt-6">
+            <div class="max-w-7xl mx-auto overflow-x-auto border border-slate-200 rounded-lg shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <thead class="text-slate-900 text-sm font-semibold bg-gray-200 border-b border-slate-200 whitespace-nowrap">
+                        <tr>
+                            <th scope="col" class="px-4 py-3.5">Company</th>
+                            <th scope="col" class="px-4 py-3.5">Job</th>
+                            <th scope="col" class="px-4 py-3.5">Salary</th>
+                            <th scope="col" class="px-4 py-3.5">Date</th>
+                            <th scope="col" class="px-4 py-3.5">Status</th>
+                            <th scope="col" class="px-4 py-3.5">Website</th>
+                            <th scope="col" class="px-4 py-3.5">Location</th>
+                            <th scope="col" class="px-4 py-3.5">Notes</th>
+                            <th scope="col" class="px-4 py-3.5">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <!-- divide-y creates horizontal lines between table rows -->
+                    <tbody class="text-sm divide-y divide-slate-200">
+                        {% for index_job in job_data %}
+                        <tr class="bg-white">
+                            <td class="px-4 py-4 font-bold text-slate-900 whitespace-nowrap">{{ index_job["company_name"] }}</td>
+                            <td class="px-4 py-4 text-slate-500">{{ index_job["job_name"] }}</td>
+                            <td class="px-4 py-4 text-slate-500">{{ index_job["salary"] }}</td>
+                            <td class="px-4 py-4 text-slate-500">{{ index_job["date_applied"] }}</td>
+                            <td class="px-4 py-4 text-slate-500">{{ index_job["status"] }}</td>
+                            <td class="px-4 py-4 text-slate-500"><a href='https://{{ index_job["job_link"] }}'>Job link</a></td>
+                            <td class="px-4 py-4 text-slate-500">{{ index_job["location"] }}</td>
+                            <td class="px-4 py-4 text-slate-500">{{ index_job["notes"] }}</td>
+                            <td class="px-4 py-4 whitespace-nowrap space-x-3">
+                                <a href="/edit?id={{ index_job['id'] }}" class="text-sm font-medium text-blue-600 hover:underline focus:outline-none rounded">Edit</a>
+                                
+                                <!-- Delete Modal Toggle Button (adapted from Flowbite)-->
+                                <button data-modal-target="delete-modal-{{ index_job['id'] }}" data-modal-toggle="delete-modal-{{ index_job['id'] }}" class="text-sm font-medium text-red-600 hover:underline focus:outline-none rounded red-a" type="button">
+                                    Delete
+                                </button>
+
+                                <!-- Delete Modal (adapted from Flowbite)-->
+                                <div id="delete-modal-{{ index_job['id'] }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                    <div class="relative p-4 w-full max-w-md max-h-full">
+                                        <!-- Modal content -->
+                                        <div class="relative bg-white border border-slate-200 rounded-lg shadow-md p-4 md:p-6">
+                                            <!-- Modal header -->
+                                            <div class="flex items-center justify-between border-b border-slate-200 pb-4 md:pb-5">
+                                                <h3 class="text-lg font-medium text-slate-900">
+                                                    Confirm Deletion
+                                                </h3>
+                                                <button type="button" class="text-slate-400 bg-transparent hover:bg-slate-100 hover:text-slate-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="delete-modal-{{ index_job['id'] }}">
+                                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/></svg>
+                                                    <span class="sr-only">Close modal</span>
+                                                </button>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div class="space-y-4 md:space-y-6 py-4 md:py-6">
+                                                <p class="leading-relaxed text-slate-600">
+                                                    Are you sure you want to delete the job?
+                                                </p>
+                                            </div>
+                                            <!-- Modal footer -->
+                                            <div class="flex items-center justify-end border-t border-slate-200 space-x-3 pt-4 md:pt-5">
+                                                <button data-modal-hide="delete-modal-{{ index_job['id'] }}" type="button" class="text-slate-700 bg-slate-100 hover:bg-slate-200 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none">Cancel</button>
+                                                <a href="/delete?id={{ index_job['id'] }}" class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none">Confirm Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+{% endblock %}

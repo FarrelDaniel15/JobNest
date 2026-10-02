@@ -1,0 +1,49 @@
+@import url('https://googleapis.com');
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+*{
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.nav-text {
+    color: black;
+    text-decoration: none;
+}
+
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+th, td {
+    text-align: center !important;
+}
+
+button {
+    border-radius: 10px !important;
+}
+
+.red-a {
+    color: red !important;
+}
