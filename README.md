@@ -67,8 +67,9 @@ JobNest/
 
 ---
 
-## 📸 App Screenshots
+## 📸 Live Demo & App Screenshots
 
+Live demo: https://farreldanielabimanyu.pythonanywhere.com
 A visual walkthrough of JobNest's main features.
 
 ### 🏠 Home Page
