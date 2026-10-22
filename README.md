@@ -63,3 +63,40 @@ JobNest/
 ├── app.py               # Main Flask server routing & logic
 ├── jobnest.db           # SQLite database schema and storage
 └── requirements.txt     # Python dependencies
+```
+
+---
+
+## 📸 App Screenshots
+
+A visual walkthrough of JobNest's main features.
+
+### 🏠 Home Page
+The landing page introduces JobNest and offers quick access to **Get Started** (register) and **Log In**.
+
+![Home Page](screenshots/Home.png)
+
+### 📝 Register
+New users can create an account with a username, email, password, and password confirmation.
+
+![Register Page](screenshots/Register.png)
+
+### 🔐 Log In
+Returning users securely sign in with their username and password.
+
+![Login Page](screenshots/Login.png)
+
+### 📊 Job Dashboard
+A centralized table of all job applications showing company, job, salary, date, status, website, location, and notes, with **Edit** and **Delete** actions for each entry.
+
+![Job Dashboard](screenshots/Job_Dashboard.png)
+
+### ➕ Add Job
+Log a new application with company, job title, salary, date, status, website, location, and notes.
+
+![Add Job](screenshots/Add_job.png)
+
+### ✏️ Update Job
+Edit an existing entry to update its details or move it to a new stage in the hiring pipeline.
+
+![Update Job](screenshots/Update_job.png)
